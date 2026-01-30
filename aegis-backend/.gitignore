@@ -1,0 +1,6 @@
+# Environment variables
+.env
+aegis-backend/.env
+
+# Node
+node_modules/

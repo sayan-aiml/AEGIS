@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AEGIS — Agentic Decision Governance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #ffffff;
+      color: #111;
+      height: 100vh;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      height: 100vh;
+    }
+
+    /* ================= LEFT PANEL ================= */
+    .explain {
+      padding: 64px 80px;
+      border-right: 1px solid #e6e6e6;
+      overflow-y: auto;
+    }
+
+    .brand-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .brand-logo {
+      width: 44px;
+    }
+
+    .brand-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    h1 {
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.8;
+      max-width: 720px;
+      margin-bottom: 44px;
+    }
+
+    .section {
+      margin-bottom: 42px;
+      max-width: 760px;
+    }
+
+    .section h3 {
+      font-size: 14px;
+      letter-spacing: 0.14em;
+      color: #777;
+      margin-bottom: 14px;
+    }
+
+    .section p {
+      font-size: 15.5px;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 14px;
+    }
+
+    .section ul {
+      padding-left: 18px;
+      font-size: 15.5px;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .section ul li {
+      margin-bottom: 10px;
+    }
+
+    .callout {
+      background: #f7f7f7;
+      padding: 16px 18px;
+      border-left: 4px solid #111;
+      font-size: 14px;
+      color: #444;
+      margin-top: 18px;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-top: 10px;
+      margin-right: 6px;
+      font-size: 13px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: #efefef;
+      color: #333;
+    }
+
+    /* ================= RIGHT PANEL ================= */
+    .test {
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .test-header {
+      font-size: 14px;
+      font-weight: 600;
+      color: #444;
+    }
+
+    .test-sub {
+      font-size: 13.5px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* ===== LARGE IDLE AI CARD ===== */
+    .idle-card {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      max-height: 360px;
+      border-radius: 36px;
+      border: 3px solid #a3a3a3;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      margin-top: 110px;
+    }
+
+    .idle-card.hidden {
+      opacity: 0;
+      transform: scale(0.96);
+      pointer-events: none;
+    }
+
+    /* Baymax Eyes */
+    .baymax-eyes {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 120px;
+    }
+
+    .baymax-eyes::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 10px;
+      background: #000;
+      border-radius: 5px;
+    }
+
+    .eye {
+      width: 72px;
+      height: 72px;
+      background: #000;
+      border-radius: 50%;
+      animation: blink 6s infinite;
+    }
+
+    .idle-card:hover .eye {
+      animation-duration: 2s;
+    }
+
+    @keyframes blink {
+      0%, 92%, 100% { transform: scaleY(1); }
+      94%, 96% { transform: scaleY(0.08); }
+    }
+
+    #agentRoot {
+      flex: 1;
+      border: 1px solid #e5e5e5;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .footer {
+      font-size: 12px;
+      color: #111;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- LEFT PANEL -->
+  <section class="explain">
+    <div class="brand-header">
+      <img src="aegis-logo.png" class="brand-logo" />
+      <div class="brand-title">AEGIS</div>
+    </div>
+
+    <h1>Agentic Decision Governance System</h1>
+
+    <p class="subtitle">
+      AEGIS is a deterministic, domain-agnostic decision governance system built on
+      IBM watsonx Orchestrate. It is designed for high-stakes enterprise decisions
+      where explainability, consistency, and human oversight are mandatory.
+    </p>
+
+    <div class="section">
+      <h3>THE PROBLEM AEGIS SOLVES</h3>
+      <p>
+        Most AI systems behave like conversational assistants. While flexible,
+        they are unsuitable for enterprise decision-making due to non-determinism,
+        lack of accountability, and missing escalation signals.
+      </p>
+      <p>
+        AEGIS treats decisions as governed workflows rather than conversations.
+      </p>
+    </div>
+
+    <div class="section">
+      <h3>WHAT AEGIS IS</h3>
+      <p>
+        AEGIS is not a chatbot. It executes a predefined multi-agent governance
+        workflow and produces a single final decision per request.
+      </p>
+      <div class="callout">
+        One input → One governed decision → No follow-up questions → No ambiguity
+      </div>
+    </div>
+
+    <div class="section">
+      <h3>MULTI-AGENT ARCHITECTURE</h3>
+      <ul>
+        <li><strong>Decision Agent:</strong> Orchestrates the workflow.</li>
+        <li><strong>Data Quality Agent:</strong> Validates input reliability.</li>
+        <li><strong>Explainability Agent:</strong> Explains decision factors.</li>
+        <li><strong>Trust & Risk Agent:</strong> Assigns confidence and escalation.</li>
+        <li><strong>Human Explanation Agent:</strong> Converts output into plain language.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>DOMAIN-AGNOSTIC APPLICATIONS</h3>
+      <span class="tag">Loan Approval</span>
+      <span class="tag">HR Hiring</span>
+      <span class="tag">Vendor Compliance</span>
+      <span class="tag">Procurement</span>
+      <span class="tag">IT Governance</span>
+    </div>
+  </section>
+
+  <!-- RIGHT PANEL -->
+  <section class="test">
+    <div class="test-header">LIVE DECISION EXECUTION</div>
+    <div class="test-sub">
+      Execute AEGIS in real time using IBM’s governed agent runtime.
+    </div>
+
+    <div class="footer">
+      Powered by IBM watsonx Orchestrate
+    </div>
+
+    <!-- Idle AI -->
+    <div class="idle-card" id="idleCard">
+      <div class="baymax-eyes">
+        <span class="eye"></span>
+        <span class="eye"></span>
+      </div>
+    </div>
+
+    <!-- IBM Agent -->
+    <div id="agentRoot"></div>
+  </section>
+
+</div>
+
+<!-- IBM EMBED -->
+<script>
+  window.wxOConfiguration = {
+    orchestrationID: "98579b962264493289b35da8215df804_2008d4ae-958f-49ae-9bdb-c49e68408762",
+    hostURL: "https://eu-de.watson-orchestrate.cloud.ibm.com",
+    rootElementID: "agentRoot",
+    deploymentPlatform: "ibmcloud",
+    crn: "crn:v1:bluemix:public:watsonx-orchestrate:eu-de:a/98579b962264493289b35da8215df804:2008d4ae-958f-49ae-9bdb-c49e68408762::",
+    chatOptions: {
+      agentId: "ef6d00ae-9490-42ff-a63c-7ed57b762e44",
+      agentEnvironmentId: "9f32ece7-dbcf-422c-a6c1-d613158e282c"
+    }
+  };
+
+  const script = document.createElement("script");
+  script.src = `${window.wxOConfiguration.hostURL}/wxochat/wxoLoader.js?embed=true`;
+  script.onload = () => wxoLoader.init();
+  document.head.appendChild(script);
+
+</script>
+
+</body>
+</html>

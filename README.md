@@ -148,7 +148,3 @@ It is not intended as a full production deployment, but as a reference architect
 > **AEGIS optimizes for accountability.**
 
 AEGIS demonstrates how enterprises can safely operationalize AI decisions under the aegis of **IBM watsonx Orchestrate**.
-
-
-## 🧩 Architecture Diagram
-

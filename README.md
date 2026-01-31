@@ -24,7 +24,7 @@ ensuring deterministic behavior, traceability, and auditability across the decis
 
 ## Demo
 🎥 Video Demo: https://youtu.be/19KkKMNpf6k
-🌐 Live UI: (your Vercel link)
+🌐 Live UI: https://aegis-rho-seven.vercel.app/
 
 ## Status
 This project is a hackathon proof-of-concept focused on architecture and governance logic.
